@@ -18,7 +18,8 @@ on:
 env:
   CONFIG_FILE: config/ramips/mt7621.config
   SOURCE_URL: https://github.com/immortalwrt/immortalwrt
-  SOURCE_BRANCH: openwrt-21.02
+  SOURCE_BRANCH: openwrt-18.06-k5.4
+  #openwrt-21.02
   DIY_SH: scripts/custom.sh
   TOOLCHAIN_TAG: toolchain
   CLASH_BINARY_PLATFORM: mipsel
@@ -109,12 +110,15 @@ jobs:
           echo "TOOLCHAIN_IMAGE=$TOOLCHAIN_IMAGE" >> $GITHUB_ENV
           echo "::set-output name=TOOLCHAIN_IMAGE::$(echo $TOOLCHAIN_IMAGE)"
           cat $GITHUB_ENV
+          echo "debug"
+          env
 
       - name: Compare Toolchain Hash
         id: hash
         run: |
           cd $OPENWRT_ROOT_PATH
           pwd
+          env
           export CURRENT_HASH=$(git log --pretty=tformat:"%H" -n1 tools toolchain)
           echo "CURRENT_HASH=$CURRENT_HASH" >> $GITHUB_ENV
           echo "::set-output name=CURRENT_HASH::$(echo $CURRENT_HASH)"
