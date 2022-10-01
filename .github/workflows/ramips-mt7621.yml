@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: Build bcm53xx/rt-ac68u openwrt
+name: Build ramips/mt7621 openwrt
 
 on:
   workflow_dispatch:
@@ -16,12 +16,12 @@ on:
   #   types: started
 
 env:
-  CONFIG_FILE: config/bcm53xx/rt-ac68u.config
+  CONFIG_FILE: config/ramips/mt7621.config
   SOURCE_URL: https://github.com/immortalwrt/immortalwrt
   SOURCE_BRANCH: openwrt-21.02
   DIY_SH: scripts/custom.sh
   TOOLCHAIN_TAG: toolchain
-  CLASH_BINARY_PLATFORM: armv7
+  CLASH_BINARY_PLATFORM: mips
   TOOLCHAIN_RELEASE_UPLOAD: true
   FIRMWARE_RELEASE_UPLOAD: true
   WEB_ROOT_PATH: /data/www/openwrt.cc
