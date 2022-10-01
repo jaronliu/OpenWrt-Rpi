@@ -21,7 +21,7 @@ env:
   SOURCE_BRANCH: openwrt-21.02
   DIY_SH: scripts/custom.sh
   TOOLCHAIN_TAG: toolchain
-  CLASH_BINARY_PLATFORM: mips
+  CLASH_BINARY_PLATFORM: mipsel
   TOOLCHAIN_RELEASE_UPLOAD: true
   FIRMWARE_RELEASE_UPLOAD: true
   WEB_ROOT_PATH: /data/www/openwrt.cc
