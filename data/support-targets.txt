@@ -4,5 +4,9 @@ bcm27xx/bcm2709
 bcm27xx/bcm2710
 bcm27xx/bcm2711
 ipq40xx/generic
+ramips/mt7621
+ramips/mt76x8
 rockchip/armv8
+ar71xx/generic
+bcm53xx/generic
 x86/64
