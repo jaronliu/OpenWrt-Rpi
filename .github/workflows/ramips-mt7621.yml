@@ -310,7 +310,7 @@ jobs:
         run: |
           [ -e files ] && mv files $OPENWRT_ROOT_PATH/files
           [ -e $CONFIG_FILE ] && mv $CONFIG_FILE $OPENWRT_ROOT_PATH/.config
-          cat config/general-packages.config >> $OPENWRT_ROOT_PATH/.config
+          # cat config/general-packages.config >> $OPENWRT_ROOT_PATH/.config
           cd $OPENWRT_ROOT_PATH
           chmod +x $GITHUB_WORKSPACE/scripts/*.sh
           $GITHUB_WORKSPACE/$DIY_SH
@@ -324,16 +324,16 @@ jobs:
           cd $OPENWRT_ROOT_PATH
           make download -j64
 
-      # - name: Compile Packages
-      #   run: |
-      #     cd $OPENWRT_ROOT_PATH
-      #     echo -e "$(nproc) thread compile"
-      #     make buildinfo
-      #     make diffconfig buildversion feedsversion
-      #     make target/compile -j$(nproc) IGNORE_ERRORS="m n" BUILD_LOG=1 || \
-      #     yes n | make target/compile -j1 V=s IGNORE_ERRORS=1
-      #     make package/compile -j$(nproc) IGNORE_ERRORS=1 || make package/compile -j1 V=s IGNORE_ERRORS=1
-      #     make package/index
+      - name: Compile Packages
+        run: |
+          cd $OPENWRT_ROOT_PATH
+          echo -e "$(nproc) thread compile"
+          make buildinfo
+          make diffconfig buildversion feedsversion
+          make target/compile -j$(nproc) IGNORE_ERRORS="m n" BUILD_LOG=1 || \
+          yes n | make target/compile -j1 V=s IGNORE_ERRORS=1
+          make package/compile -j$(nproc) IGNORE_ERRORS=1 || make package/compile -j1 V=s IGNORE_ERRORS=1
+          make package/index
 
       - name: Generate Firmware
         id: generate
