@@ -8,5 +8,6 @@ ramips/mt7621
 ramips/mt76x8
 rockchip/armv8
 ar71xx/generic
+ath79/generic
 bcm53xx/generic
 x86/64
